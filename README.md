@@ -27,7 +27,7 @@ Python will be used in this example. To generate the BUFR file this example requ
 9) Run csv2bufr, example command looks like:
       csv2bufr data transform input.csv --bufr-template bufr_template.json --output-dir output_directory
       Where those are double dashes before the command options
-10) Validate the bufr file if this is the first time creating
+10) Validate the bufr file if this is the first time creating, NOTE current code did not validate correctly.
     a) German option: https://kunden.dwd.de/bufrviewer/  This one seemed to give the most complete output
     b) ECMWF option: https://codes.ecmwf.int/bufr/validator  This one didn't seem to output everything encoded
     c) AWS option: http://aws-bufr-webapp.s3-website-ap-southeast-2.amazonaws.com/ This didn't seem to work for me.
