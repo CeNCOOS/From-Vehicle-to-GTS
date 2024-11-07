@@ -43,7 +43,7 @@
      {"eccodes_key": "#1#month","value":"data:month"},
      {"eccodes_key": "#1#day","value":"data:day"},
      {"eccodes_key": "#1#hour","value":"data:hour"},
-     {"eccodes_key": "#1#minute","value":"data:minutes"},
+     {"eccodes_key": "#1#minute","value":"data:minute"},
      {
             "eccodes_key": "#1#latitude",
             "value": "data:latitude",
@@ -62,7 +62,7 @@
         },
          {
             "eccodes_key": "#1#directionOfMotionOfMovingObservingPlatform",
-            "value": "data:directionOfMotionOfMovingObservingPlatform",
+            "value": "data:cog",
             "valid_min": "const:0",
             "valid_max": "const:360",
             "scale": "const:0",
@@ -70,7 +70,7 @@
         },
         {
             "eccodes_key": "#1#platformDriftSpeed",
-            "value": "data:platformDriftSpeed",
+            "value": "data:speed",
             "valid_min": "const:0.0",
             "valid_max": "const:20.0",
             "scale": "const:0",
@@ -78,7 +78,7 @@
         },
         {
             "eccodes_key": "#1#aircraftTrueHeading",
-            "value": "data:aircraftTrueHeading",
+            "value": "data:cog",
             "valid_min": "const:0",
             "valid_max": "const:360",
             "scale": "const:0",
@@ -86,7 +86,7 @@
         },
         {
             "eccodes_key": "#1#heightOfBarometerAboveMeanSeaLevel",
-            "value": "data:heightOfBarometerAboveMeanSeaLevel",
+            "value": "const:0.5",
             "valid_min": "const:0.0",
             "valid_max": "const:1.1",
             "scale": "const:0",
@@ -94,7 +94,7 @@
         },
         {
             "eccodes_key": "#1#nonCoordinatePressure",
-            "value": "data:nonCoordinatePressure",
+            "value": "data:pres",
             "valid_min": "const:0",
             "valid_max": "const:163830",
             "scale": "const:0",
@@ -102,7 +102,7 @@
         },
         {
             "eccodes_key": "#1#pressureReducedToMeanSeaLevel",
-            "value": "data:pressureReducedToMeanSeaLevel",
+            "value": "data:pres",
             "valid_min": "const:0",
             "valid_max": "const:163830",
             "scale": "const:0",
@@ -110,7 +110,7 @@
         },
 		{
 		    "eccodes_key": "#1#heightOfSensorAboveWaterSurface",
-		    "value":"data:airtheight",
+		    "value":"const:0.5",
 		    "valid_min": "const:0",
 		    "valid_max": "const:2",
 		    "scale": "const:0",
@@ -118,7 +118,7 @@
 		},
 		{
 		    "eccodes_key": "#1#airTemperature",
-		    "value":"data:airtemp",
+		    "value":"data:airt",
 		    "valid_min": "const:0",
 		    "valid_max": "const:313",
 			"scale": "const:0",
@@ -126,7 +126,7 @@
 		},
 		{
 		    "eccodes_key": "#1#relativeHumidity",
-		    "value":"data:relhumid",
+		    "value":"data:rh",
 		    "valid_min": "const:0",
 		    "valid_max": "const:100",
 		    "scale": "const:0",
@@ -134,7 +134,7 @@
 		},
 		{
 		    "eccodes_key": "#2#heightOfSensorAboveWaterSurface",
-		    "value":"data:rhheight",
+		    "value":"const:0.5",
 		    "valid_min": "const:0",
 		    "valid_max": "const:2",
 		    "scale": "const:0",
@@ -149,7 +149,7 @@
 		    
 		{
 		    "eccodes_key": "#1#timePeriod",
-		    "value":"data:minutes",
+		    "value":"data:minute",
 		    "valid_min": "const:0",
 		    "valid_max": "const:59"
 		},
@@ -163,7 +163,7 @@
 		},
 		{
 		    "eccodes_key": "#1#windSpeed",
-		    "value":"data:wspeed",
+		    "value":"data:wind",
 		    "valid_min": "const:0",
 		    "valid_max": "const:100",
 		    "scale": "const:0",
@@ -177,7 +177,7 @@
 		},
 		{
 			"eccodes_key": "#2#timePeriod",
-		    "value":"data:minutes",
+		    "value":"data:minute",
 		    "valid_min": "const:0",
 		    "valid_max": "const:59"
 		},
@@ -191,7 +191,7 @@
 		},
 		{
 			"eccodes_key": "#1#temperatureObservationPrecision",
-			"value":"const:0.01",
+			"value":"const:0.1",
 			"scale":"const:0",
 			"offset":"const:0"
 		},

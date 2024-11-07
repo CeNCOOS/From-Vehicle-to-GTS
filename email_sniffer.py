@@ -165,13 +165,18 @@ class EmailSniffer():
                         f=open(filename,'w') # filename has to be determined for how this code will work...
                         f.write(hdrcsv_str)
                         speed=dataum['Average GPS Speed']
+                        speed=speed*0.5144
                         cog=dataum['Average Course Over Ground']
                         wdir=dataum['Avg Wind Direction']
                         wind=dataum['Avg Wind Speed']
+                        wind=wind*0.5155
                         pres=dataum['Average Barometric Pressure']
+                        pres=pres*100 # convert from mb to Pascals
                         airt=dataum['Average Air Temperature']
+                        airt=airt+274.15 # convert from C to K
                         rh=dataum['Average Relative Humidity']
                         sst=dataum['Average Sea Surface Temperature 1']
+                        sst=sst+274.15 # convert from C to K
                         myuuid=uuid.uuid4()
                         #pdb.set_trace()
                         f.write('0,22000,0,'+str(wmoid)+','+str(myuuid)+',')
