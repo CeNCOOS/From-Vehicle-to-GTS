@@ -9,7 +9,7 @@ The ECMF table of codes is the base for all the codes and a very large and confu
 2) You will need a WMO ID for your vehicle.  You need some defining permanent feature of the vehicle that can be associated with the WMO ID.  Generally this is the serial number of the vehicle.
 3) There are currently set types of vehicles and if you have a different type you will need to contact Ocean-Ops to have them define your vehicle type.  Uncrewed Surface Vehicles (USV) are on their list to add, but currently they are listed by manufacturer.
 4) Request a WMO ID and enter the appropriate data requested by the form.  Note during the summer this may take some time as most of the staff may be on vacation.
-5) Obtain your datastream from your vehicle.  This may as in the example used here require decoding the data.
+5) Obtain your datastream from your vehicle.  This may, as in the example used here, require decoding the data.
 6) Write the data to a csv file with a header
 Python will be used in this example. To generate the BUFR file this example requires the following:
     eccodes
