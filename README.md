@@ -18,10 +18,12 @@ Python will be used in this example. To generate the BUFR file this example requ
 
 7) Create bufr template JSON file  A table of some of the codes located https://confluence.ecmwf.int/display/ECC/WMO%3D37+element+table
     Note: template could not have the following in it for this example:
-       1) {eccodes_key": "#1#observingPlatformManufacturerModel", "value":"const:1001824"} as this is not in the current version of eccodes
-       2) {eccodes_key": "#1#observingPlatformManufacturerSerialNumber","value":"const:EMP301"} this won't work both because above isn't there but also because the serial number is assumed to be a integer
-       3) {eccodes_key": "#1#stationType","value":"const:9"} this has to be "surfaceStationType" as "stationType" is not defined for this report sequence
-       4) {eccodes_key": "#1#uniqueIdentifierForProfile","value":"data:uuid"} would not code for some reason, but since id is defined in the metadata as a uuid we will go with that.
+   <ul>
+    <li> 1) {eccodes_key": "#1#observingPlatformManufacturerModel", "value":"const:1001824"} as this is not in the current version of eccodes</li>
+    <li>2) {eccodes_key": "#1#observingPlatformManufacturerSerialNumber","value":"const:EMP301"} this won't work both because above isn't there but also because the serial number is assumed to be a integer</li>
+    <li>3) {eccodes_key": "#1#stationType","value":"const:9"} this has to be "surfaceStationType" as "stationType" is not defined for this report sequence</li>
+    <li>4) {eccodes_key": "#1#uniqueIdentifierForProfile","value":"data:uuid"} would not code for some reason, but since id is defined in the metadata as a uuid we will go with that.</li>
+   </ul>
 9) Run csv2bufr, example command looks like:
       csv2bufr data transform input.csv --bufr-template bufr_template.json --output-dir output_directory
       Where those are double dashes before the command options
