@@ -8,11 +8,11 @@
     "editor":"FLB",
    "dateCreated":"2024-10-22",
    "dateModified":"2024-10-23",
-   "id":"19a67e41-7f7f-4327-b961-04aec4666762"
+   "id":"data:uuid"
  },
-   "inputShortDelayedDescriptionReplicationFactor":[],
-   "inputDelayedDescriptionReplicationFactor":[],
-   "inputExtendedDelayedDescriptionReplicationFactor":[],
+   "inputShortDelayedDescriptorReplicationFactor":[],
+   "inputDelayedDescriptorReplicationFactor":[],
+   "inputExtendedDelayedDescriptorReplicationFactor":[],
    "number_header_rows":1,
    "column_names_row":1,
    "quoting":"QUOTE_NONE",
@@ -38,10 +38,7 @@
      {"eccodes_key": "#1#wigosIssuerOfIdentifier", "value":"data:wsi_issuer"},
      {"eccodes_key": "#1#wigosIssueNumber", "value":"data:wsi_issue_number"},
      {"eccodes_key": "#1#wigosLocalIdentifierCharacter", "value":"data:wsi_local"},
-     {"eccodes_key": "#1#observingPlatformManufacturerModel","value":"const:1001824"},
-     {"eccodes_key": "#1#ovservingPlatformManufacturerSerialNumber","value":"const:EMP301"},
-     {"eccodes_key": "#1#stationType","value":"const:9"},
-     {"eccodes_key": "#1#uniqueIdentifierForProfile","value":"data:uuid"},
+     {"eccodes_key": "#1#surfaceStationType","value":"const:9"},
      {"eccodes_key": "#1#year","value":"data:year"},
      {"eccodes_key": "#1#month","value":"data:month"},
      {"eccodes_key": "#1#day","value":"data:day"},
@@ -174,7 +171,7 @@
 		},
 		{
 		    "eccodes_key": "#2#timeSignificance",
-		    "value":"const:30"
+		    "value":"const:30",
 		    "valid_min":"const:0",
 		    "valid_max":"const:31"
 		},
@@ -213,10 +210,7 @@
 		    "valid_max": "const:313",
 		    "scale": "const:0",
 		    "offset": "const:0"
-		},
-		{
-			"eccodes_key": "#1#shortDelayedDescriptorReplicationFactor",
-		    "value":"const:1"}
+		}
 		]
 }
 		    

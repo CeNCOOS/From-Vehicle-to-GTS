@@ -13,13 +13,15 @@ from email.message import EmailMessage
 import re
 import pdb
 from decode_satellite_message import unpack_data, bpFormat
+import uuid
 #Fri May 24 15:51:32 2019
+# Modified by FLB for oshen USV.
+
 
 
 def decode_hex_message(hex_data):
     binary_data = bytes.fromhex(hex_data)
     unpacked_data = unpack_data(binary_data, bpFormat)
-    #pdb.set_trace()
     return unpacked_data['Latitude'],unpacked_data['Longitude'],unpacked_data['Timestamp'],unpacked_data
 
 class EmailSniffer():
@@ -69,7 +71,7 @@ class EmailSniffer():
         #
         # create header line string for csv file
         #
-        hdrcsv_str='wsi_series,wsi_issuer,wsi_issue_number,wsi_local,year,month,day,hour,minute,latitude,longitude,'
+        hdrcsv_str='wsi_series,wsi_issuer,wsi_issue_number,wsi_local,uuid,year,month,day,hour,minute,latitude,longitude,'
         hdrcsv_str=hdrcsv_str+'speed,cog,wind,wdir,pres,airt,rh,sst\n'
         # test file to output data to
         #f=open('oshen_pos_test.txt','w')
@@ -79,7 +81,7 @@ class EmailSniffer():
             #    break
             try:
                 # change hours back to what is appropriate for testing to read message if there are no new ones.
-                date = (datetime.datetime.now() - datetime.timedelta(hours=72)).strftime("%d-%b-%Y")
+                date = (datetime.datetime.now() - datetime.timedelta(hours=400)).strftime("%d-%b-%Y")
 
                 M = imaplib.IMAP4(self.email_incoming_svr)
 
@@ -99,7 +101,7 @@ class EmailSniffer():
                 # note need to change back to UNSEEN for real code
                 # for test use SEEN to look at messages that have already been read
                 response, items = M.search(None,
-                                           '(UNSEEN SENTSINCE {date} HEADER Subject "{subject}" FROM "{sender}")'.format(
+                                           '(SEEN SENTSINCE {date} HEADER Subject "{subject}" FROM "{sender}")'.format(
                                                date=date,
                                                subject=self.IMEI,
                                                sender='RockBLOCK'
@@ -170,7 +172,10 @@ class EmailSniffer():
                         airt=dataum['Average Air Temperature']
                         rh=dataum['Average Relative Humidity']
                         sst=dataum['Average Sea Surface Temperature 1']
-                        f.write('0,22000,0,'+str(wmoid)+','+syear+','+smon+','+sday+',')
+                        myuuid=uuid.uuid4()
+                        #pdb.set_trace()
+                        f.write('0,22000,0,'+str(wmoid)+','+str(myuuid)+',')
+                        f.write(syear+','+smon+','+sday+',')
                         f.write(shour+','+smin+','+str(latitude)+','+str(longitude)+',')
                         f.write(str(speed)+','+str(cog)+','+str(wind)+','+str(wdir)+',')
                         f.write(str(pres)+','+str(airt)+','+str(rh)+','+str(sst)+'\n')
@@ -178,19 +183,21 @@ class EmailSniffer():
                         # So we can write all this out but to make sure the buffer is flushed you need to close the file.
                         # this is the code to send to ODSS
                         # commented out for now
-                        mymsg=EmailMessage()
-                        mymsg['Subject']='Emperor,'+str(decoded_time)+','+str(longitude)+','+str(latitude)
+                        #mymsg=EmailMessage()
+                        #mymsg['Subject']='Emperor,'+str(decoded_time)+','+str(longitude)+','+str(latitude)
                         ##mymsg['Subject']='Emperor,'+str(timeformail)+','+str(longitude)+','+str(latitude)
-                        mymsg['From']='flbahr@mbari.org'
-                        mymsg['To']='flbahr@mbari.org'
+                        #mymsg['From']='flbahr@mbari.org'
+                        #mymsg['To']='flbahr@mbari.org'
                         ##mymsg['To']='auvtrack@mbari.org'
                         ##mymsgtxt='Emperor,'+str(timeformail)+','+str(longitude)+','+str(latitude)
-                        mymsgtxt='Emperor,'+str(decoded_time)+','+str(longitude)+','+str(latitude)
-                        mymsg.set_payload(mymsgtxt)
-                        stest=smtplib.SMTP('localhost')
-                        stest.send_message(mymsg)
-                        stest.quit()
-                        #pdb.set_trace()
+                        #mymsgtxt='Emperor,'+str(decoded_time)+','+str(longitude)+','+str(latitude)
+                        #mymsg.set_payload(mymsgtxt)
+                        #stest=smtplib.SMTP('localhost')
+                        #stest.send_message(mymsg)
+                        #stest.quit()
+                        cmd='csv2bufr data transform /home/flbahr/oshen/'+filename+' --bufr-template /home/flbahr/oshen/bufr_oshen_template.json --output-dir /home/flbahr/oshen/'
+                        # os.system(cmd) # will this work?
+                        pdb.set_trace()
                         # mail message to tracking database
                         # To: auvtrack@mbari.org
                         # From: usv_track
