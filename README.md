@@ -31,6 +31,6 @@ Python will be used in this example. To generate the BUFR file this example requ
     a) German option: https://kunden.dwd.de/bufrviewer/  This one seemed to give the most complete output
     b) ECMWF option: https://codes.ecmwf.int/bufr/validator  This one didn't seem to output everything encoded
     c) AWS option: http://aws-bufr-webapp.s3-website-ap-southeast-2.amazonaws.com/ This didn't seem to work for me.
-11) Take the .bufr4 file and place it in a web accessible folder where your regional node can pick it up and post it to the GTS
+11) Take the .bufr4 file and place it in a web accessible folder where your regional node can pick it up and post it to the GTS (How this will works is in progress)
 
 Note: This is all a work in progress. We have not yet submitted data to the GTS yet.
