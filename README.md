@@ -1,7 +1,7 @@
 # From-Vehicle-to-GTS
 How to go from a vehicle to posting data on the GTS
 
-This repository is designed to help guide a beginner from a vehicles data stream to pushing data to a file that can be picked up by the GTS (Global Telecommunications System).
+This repository is designed to help guide a beginner from a vehicle's data stream to pushing data to a file that can be picked up by the GTS (Global Telecommunications System).
 This example was set up around Met-Ocean observations from autonomous surface vessels Report Sequence 3 15 011 from the FM 94 BUFR 
 The ECMF table of codes is the base for all the codes and a very large and confusing document.
 
