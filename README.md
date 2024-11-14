@@ -25,7 +25,7 @@ Python will be used in this example. To generate the BUFR file this example requ
     <li>4) {eccodes_key": "#1#uniqueIdentifierForProfile","value":"data:uuid"} would not code for some reason, but since id is defined in the metadata as a uuid we will go with that.</li>
    </ul>
 9) Run csv2bufr, example command looks like:
-      csv2bufr data transform input.csv --bufr-template bufr_template.json --output-dir output_directory
+      <code>csv2bufr data transform input.csv --bufr-template bufr_template.json --output-dir output_directory</code>
       Where those are double dashes before the command options
 10) Validate the bufr file if this is the first time creating,
     a) German option: https://kunden.dwd.de/bufrviewer/  This one seemed to give the most complete output
